@@ -87,7 +87,7 @@ function characterClick( event ) {
     objLetter.disabled = true;
     if (nbError >= 11) {
         nbError = 11;
-        alert("C'est perdu !");
+        alert("C'est perdu ! Le mot etait : " + word);
     } 
 }
 

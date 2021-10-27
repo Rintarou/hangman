@@ -87,6 +87,7 @@ function characterClick( event ) {
     objLetter.disabled = true;
     if (nbError >= 11) {
         nbError = 11;
+        alert("C'est perdu ! Le mot etait : " + word);
         endGame();
     } 
 }
@@ -104,7 +105,6 @@ function rejouer() {
 }
 
 function endGame() {
-    alert("C'est perdu ! Le mot etait : " + word);
 
     Array.from( chars ).forEach( ( char, id ) => {
         document.getElementById(char).disabled = true;

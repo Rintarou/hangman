@@ -28,7 +28,7 @@ function onLoad() {
     let pad = document.getElementById('input-pad');
     Array.from(chars).forEach( ( char, id )=>{
         pad.insertAdjacentHTML('beforeend', `
-            <button id='`+char+`' class='btn btn-secondary'>`+char+`</button>
+            <button class="btn-dark" id='`+char+`' class='btn btn-secondary'>`+char+`</button>
         `);
         document.getElementById( char ).addEventListener( 'click', characterClick );
     });

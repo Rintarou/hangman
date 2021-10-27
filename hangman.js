@@ -1,10 +1,11 @@
-
-
-//var characters = [
-  //  'a', 'b', 'c', 'd', 'e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'
-//];
+/* hangman.js
+    controller for a game of hangman.
+    methods: onLoad, resetWord, characterClick, endGame, replay
+*/
 
 var nbError = 0;
+var chars= 'abcdefghijklmnopqrstuvwxyz';
+var word = null;
 
 let tabError = [
     './images/pendu1.jpg',
@@ -19,10 +20,6 @@ let tabError = [
     './images/pendu10.jpg',
     './images/pendu11.jpg',
 ];
-
-var chars= 'abcdefghijklmnopqrstuvwxyz';
-
-var word = null;
 
 wordList = [
     'Sort',
@@ -97,7 +94,18 @@ function characterClick( event ) {
     } 
 }
 
-function rejouer() {
+function endGame() {
+
+    Array.from( chars ).forEach( ( char, id ) => {
+        document.getElementById(char).disabled = true;
+    });
+
+    Array.from( word ).forEach( (char, id) => {
+        document.getElementById('word' + id).value = char;
+    });
+}
+
+function replay() {
 
     Array.from(chars).forEach( ( char, id )=>{
         let obj = document.getElementById( char );
@@ -108,15 +116,4 @@ function rejouer() {
     nbError = 0;
 
     resetWord();
-}
-
-function endGame() {
-
-    Array.from( chars ).forEach( ( char, id ) => {
-        document.getElementById(char).disabled = true;
-    });
-
-    Array.from( word ).forEach( (char, id) => {
-        document.getElementById('word' + id).value = char;
-    });
 }

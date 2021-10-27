@@ -28,12 +28,29 @@ function onLoad() {
     let pad = document.getElementById('input-pad');
     Array.from(chars).forEach( ( char, id )=>{
         pad.insertAdjacentHTML('beforeend', `
-            <button id='`+char+`' class='btn btn-secondary'>`+char+`</button>
+            <button class="btn-dark" id='`+char+`' class='btn btn-secondary'>`+char+`</button>
         `);
         document.getElementById( char ).addEventListener( 'click', characterClick );
     });
     
-    word = 'elephant';
+    wordList = [
+        "Sort",
+        "Deguisement",
+        "Squelette",
+        "Lanterne",
+        "Fantôme",
+        "Toussaint",
+        "Sorcière",
+        "Citrouille",
+        "Vampire",
+        "Halloween",
+        "Automne",
+        "Bonbons",
+        "Demon",
+        "Zombie",
+      ];
+    
+      word = wordList[Math.floor(Math.random() * wordList.length )];
 
     resetWord();
 }
@@ -71,7 +88,6 @@ function characterClick( event ) {
     if (nbError >= 11) {
         nbError = 11;
         endGame();
-
     } 
 }
 
@@ -88,12 +104,12 @@ function rejouer() {
 }
 
 function endGame() {
-    alert("C'est perdu !");
+    alert("C'est perdu ! Le mot etait : " + word);
 
     Array.from( chars ).forEach( ( char, id ) => {
         document.getElementById(char).disabled = true;
     });
-    
+
     Array.from( word ).forEach( (char, id) => {
         document.getElementById("word" + id).value = letter;
     });

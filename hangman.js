@@ -24,6 +24,23 @@ var chars= 'abcdefghijklmnopqrstuvwxyz';
 
 var word = null;
 
+wordList = [
+    "Sort",
+    "Deguisement",
+    "Squelette",
+    "Lanterne",
+    "Fantôme",
+    "Toussaint",
+    "Sorcière",
+    "Citrouille",
+    "Vampire",
+    "Halloween",
+    "Automne",
+    "Bonbons",
+    "Demon",
+    "Zombie",
+  ];
+
 function onLoad() {
     let pad = document.getElementById('input-pad');
     Array.from(chars).forEach( ( char, id )=>{
@@ -32,30 +49,14 @@ function onLoad() {
         `);
         document.getElementById( char ).addEventListener( 'click', characterClick );
     });
-    
-    wordList = [
-        "Sort",
-        "Deguisement",
-        "Squelette",
-        "Lanterne",
-        "Fantôme",
-        "Toussaint",
-        "Sorcière",
-        "Citrouille",
-        "Vampire",
-        "Halloween",
-        "Automne",
-        "Bonbons",
-        "Demon",
-        "Zombie",
-      ];
-    
-      word = (wordList[Math.floor(Math.random() * wordList.length )]).toLowerCase();
 
     resetWord();
 }
 
 function resetWord() {
+
+    word = (wordList[Math.floor(Math.random() * wordList.length )]).toLowerCase();
+
     let wordDisplay = document.getElementById('word-display');
 
     wordDisplay.innerHTML = '';
@@ -100,8 +101,6 @@ function rejouer() {
     });
 
     nbError = 0;
-
-    word = 'grue';
 
     resetWord();
 }

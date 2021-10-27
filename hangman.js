@@ -4,8 +4,10 @@
 */
 
 var nbError = 0;
-var chars= 'abcdefghijklmnopqrstuvwxyz';
+var nbCorrect = 0;
 var word = null;
+
+var chars= 'abcdefghijklmnopqrstuvwxyz';
 
 let tabError = [
     './images/pendu1.jpg',
@@ -73,11 +75,16 @@ function characterClick( event ) {
     if (word.includes(letter)) {
         Array.from(word).forEach((char, id) => {
             if (letter == char) {
-            let ipMot = document.getElementById('word' + id);
-            ipMot.value = letter;
+                let ipMot = document.getElementById('word' + id);
+                ipMot.value = letter;
+                nbCorrect++;
             }
         });
         objLetter.className = 'btn btn-success';
+        if( nbCorrect >= word.length ) {
+            alert(`C'est gagné! Bravo! Vous avez sauvé le bonhomme`);
+            endGame();
+        }
     } else {
         let img = document.querySelector('#img');
         img.src = tabError[nbError];
@@ -114,6 +121,7 @@ function replay() {
     });
 
     nbError = 0;
+    nbCorrect = 0;
 
     resetWord();
 }

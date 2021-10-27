@@ -45,7 +45,7 @@ function resetWord() {
     
     Array.from(word).forEach( (char, id) =>{
         wordDisplay.insertAdjacentHTML('beforeend', `
-            <input class='col-xl-1' disabled='true' id='word`+id+`'/>
+            <input size="1" disabled='true' id='word`+id+`'/>
         `);
     });
 }

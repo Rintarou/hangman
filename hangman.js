@@ -50,7 +50,7 @@ function onLoad() {
         "Zombie",
       ];
     
-      word = wordList[Math.floor(Math.random() * max)];
+      word = wordList[Math.floor(Math.random() * wordList.length )];
 
     resetWord();
 }

@@ -33,7 +33,24 @@ function onLoad() {
         document.getElementById( char ).addEventListener( 'click', characterClick );
     });
     
-    word = 'elephant';
+    wordList = [
+        "Sort",
+        "Deguisement",
+        "Squelette",
+        "Lanterne",
+        "Fantôme",
+        "Toussaint",
+        "Sorcière",
+        "Citrouille",
+        "Vampire",
+        "Halloween",
+        "Automne",
+        "Bonbons",
+        "Demon",
+        "Zombie",
+      ];
+    
+      word = wordList[Math.floor(Math.random() * max)];
 
     resetWord();
 }

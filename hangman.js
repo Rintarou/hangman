@@ -70,7 +70,8 @@ function characterClick( event ) {
     objLetter.disabled = true;
     if (nbError >= 11) {
         nbError = 11;
-        alert("C'est perdu !");
+        endGame();
+
     } 
 }
 
@@ -86,3 +87,14 @@ function rejouer() {
     resetWord();
 }
 
+function endGame() {
+    alert("C'est perdu !");
+
+    Array.from( chars ).forEach( ( char, id ) => {
+        document.getElementById(char).disabled = true;
+    });
+    
+    Array.from( word ).forEach( (char, id) => {
+        document.getElementById("word" + id).value = letter;
+    });
+}

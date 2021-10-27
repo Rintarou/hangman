@@ -113,6 +113,6 @@ function endGame() {
     });
 
     Array.from( word ).forEach( (char, id) => {
-        document.getElementById("word" + id).value = letter;
+        document.getElementById("word" + id).value = char;
     });
 }

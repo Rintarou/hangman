@@ -8,7 +8,7 @@ var nbError = 0;
 
 let tabError = [
     "./images/pendu1.jpg",
-    ".images/pendu2.jpg",
+    "./images/pendu2.jpg",
     "./images/pendu3.jpg",
     "./images/pendu4.jpg",
     "./images/pendu5.jpg",
